@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgb(var(--background-end-rgb))
+  );
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.bg-cover-image {
+  position: relative;
+  background-image: url('./images/cover-billede2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.card {
+  font-size: 164px;
+  width: 300px;
+  height: 430px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+}
+
+.card-container {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding-top: 20px;
+  margin-bottom: -120px;
+}
+
+.splash {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  clip-path: path(
+    "M 0 303.5 C 0 292.454 8.995 285.101 20 283.5 L 460 219.5 C 470.085 218.033 480 228.454 480 239.5 L 500 430 C 500 441.046 491.046 450 480 450 L 20 450 C 8.954 450 0 441.046 0 430 Z"
+  );
+}
+
+.card {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+
+  & img {
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+  }
+
+  &__blur {
+    position: absolute;
+    z-index: 1;
+    opacity: 0.4;
+    filter: blur(10px);
+    transform: translateY(10px) scale(1.25);
+  }
+
+  &__img {
+    position: relative;
+    z-index: 0;
+  }
+}
+
+.dock {
+  position: fixed;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  align-items: flex-end;
+  height: 58px;
+  display: flex;
+  padding: 10px;
+  padding-bottom: 6px;
+  gap: 12px;
+  will-change: contents;
+  box-sizing: content-box;
+  border-radius: 12px;
+  transform-origin: center bottom;
+}
+
+.dock-card {
+  margin: 0 10px;
+  padding: 10px 20px;
+  color: #000;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.7s ease;
+}
+
+.dock-card:hover {
+  transform: scale(1.5);
+  transform: translateY(5px) scale(1) translateZ(10px) scale(1) translateX(10px) scale(1);
+}
+
+.dock-card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.dock-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
